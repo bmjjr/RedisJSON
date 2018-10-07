@@ -33,7 +33,7 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="./assets/images/favicon.png">
+      <link rel="shortcut icon" href="./images/favicon.png">
       <meta name="generator" content="mkdocs-0.17.3, mkdocs-material-2.7.3">
     
     
@@ -43,6 +43,8 @@
     
     
       <link rel="stylesheet" href="./assets/stylesheets/application.8d40d89b.css">
+      
+        <link rel="stylesheet" href="./assets/stylesheets/application-palette.6079476c.css">
       
     
     
@@ -60,7 +62,9 @@
     
   </head>
   
-    <body dir="ltr">
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="red">
   
     <svg class="md-svg">
       <defs>
@@ -102,7 +106,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="http://rejson.io" title="ReJSON - a JSON data type for Redis" class="md-header-nav__button md-logo">
           
-            <i class="md-icon"></i>
+            <img src="./images/logo.svg" width="24" height="24">
           
         </a>
       </div>
@@ -198,7 +202,7 @@
   <label class="md-nav__title md-nav__title--site" for="drawer">
     <span class="md-nav__button md-logo">
       
-        <i class="md-icon"></i>
+        <img src="./images/logo.svg" width="48" height="48">
       
     </span>
     ReJSON - a JSON data type for Redis
@@ -426,6 +430,18 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="contrib/" title="Contributor agreement" class="md-nav__link">
+      Contributor agreement
+    </a>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -560,7 +576,7 @@
                   <a href="https://github.com/RedisLabsModules/ReJSON/edit/master/docs/index.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="rejson-a-json-data-type-for-redis">ReJSON - a JSON data type for Redis</h1>
+                <h1 id="rejson-a-json-data-type-for-redis">ReJSON - a JSON data type for Redis<a class="headerlink" href="#rejson-a-json-data-type-for-redis" title="Permanent link">&para;</a></h1>
 <p>ReJSON is a <a href="https://redis.io/">Redis</a> module that implements <a href="http://json.org/">ECMA-404 The JSON Data Interchange Standard</a> as a native data type. It allows storing, updating and fetching JSON values from Redis keys (documents).</p>
 <p>Primary features:</p>
 <ul>
@@ -571,26 +587,26 @@
 </ul>
 <p>ReJSON is developed with &lt;3 at <a href="https://redislabs.com">Redis Labs</a>. The source code is available
 at: https://github.com/RedisLabsModules/ReJSON</p>
-<h2 id="quickstart">Quickstart</h2>
+<h2 id="quickstart">Quickstart<a class="headerlink" href="#quickstart" title="Permanent link">&para;</a></h2>
 <ol>
 <li><a href="#launch-rejson-with-docker">Launch ReJSON with Docker</a></li>
 <li><a href="#using-rejson">Use it from <strong>any</strong> Redis client</a>, e.g.:</li>
 </ol>
 <p><img alt="ReJSON with redis-cli" src="./images/demo.gif" /></p>
 <p>Alternatively, you can also build and load the module yourself. <a href="#building-and-loading-the-module">Build and Load the ReJSON module library</a></p>
-<h2 id="launch-rejson-with-docker">Launch ReJSON with Docker</h2>
+<h2 id="launch-rejson-with-docker">Launch ReJSON with Docker<a class="headerlink" href="#launch-rejson-with-docker" title="Permanent link">&para;</a></h2>
 <p>Run the following on Windows, MacOS or Linux with Docker.</p>
 <div class="codehilite"><pre><span></span>docker run -p 6379:6379 --name redis-rejson redislabs/rejson:latest
 </pre></div>
 
 
-<h2 id="using-rejson">Using ReJSON</h2>
+<h2 id="using-rejson">Using ReJSON<a class="headerlink" href="#using-rejson" title="Permanent link">&para;</a></h2>
 <p>Before using ReJSON, you should familiarize yourself with its commands and syntax as detailed in the <a href="commands/">commands reference</a> document. However, to quickly get started just review this section and get:</p>
 <ol>
 <li>A Redis server running the module (see <a href="#building-the-module-library">building</a> and <a href="#loading-the-module-to-Redis">loading</a> for instructions)</li>
 <li>Any <a href="http://redis.io/clients">Redis</a> or <a href="#client-libraries">ReJSON client</a></li>
 </ol>
-<h3 id="with-redis-cli">With <code>redis-cli</code></h3>
+<h3 id="with-redis-cli">With <code>redis-cli</code><a class="headerlink" href="#with-redis-cli" title="Permanent link">&para;</a></h3>
 <p>This example will use <a href="http://redis.io/topics/rediscli"><code>redis-cli</code></a> as the Redis client. The first ReJSON command to try out is <a href="./commands#jsonset"><code>JSON.SET</code></a>, which sets a Redis key with a JSON value. All JSON values can be used, for example a string:</p>
 <div class="codehilite"><pre><span></span>127.0.0.1:6379&gt; JSON.SET foo . &#39;&quot;bar&quot;&#39;
 OK
@@ -673,9 +689,9 @@ OK
 </pre></div>
 
 
-<h3 id="with-any-other-client">With any other client</h3>
+<h3 id="with-any-other-client">With any other client<a class="headerlink" href="#with-any-other-client" title="Permanent link">&para;</a></h3>
 <p>Unless your <a href="http://redis.io/clients">Redis client</a> already supports Redis modules (unlikely) or ReJSON specifically (even more unlikely), you should be okay using its ability to send raw Redis commands. Depending on your client of choice, the exact method for doing that may vary.</p>
-<h4 id="python-example">Python example</h4>
+<h4 id="python-example">Python example<a class="headerlink" href="#python-example" title="Permanent link">&para;</a></h4>
 <p>This code snippet shows how to use ReJSON with raw Redis commands from Python with <a href="https://github.com/andymccurdy/redis-py">redis-py</a>:</p>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">redis</span>
 <span class="kn">import</span> <span class="nn">json</span>
@@ -690,8 +706,8 @@ OK
 </pre></div>
 
 
-<h2 id="building-and-loading-the-module">Building and Loading the Module</h2>
-<h3 id="linux-ubuntu-1604">Linux Ubuntu 16.04</h3>
+<h2 id="building-and-loading-the-module">Building and Loading the Module<a class="headerlink" href="#building-and-loading-the-module" title="Permanent link">&para;</a></h2>
+<h3 id="linux-ubuntu-1604">Linux Ubuntu 16.04<a class="headerlink" href="#linux-ubuntu-1604" title="Permanent link">&para;</a></h3>
 <p>Requirements:</p>
 <ul>
 <li>The ReJSON repository: <code>git clone https://github.com/RedisLabsModules/rejson.git</code></li>
@@ -699,10 +715,10 @@ OK
 </ul>
 <p>To build the module, run <code>make</code> in the project's directory.</p>
 <p>Congratulations! You can find the compiled module library at <code>src/rejson.so</code>.</p>
-<h3 id="macosx">MacOSX</h3>
+<h3 id="macosx">MacOSX<a class="headerlink" href="#macosx" title="Permanent link">&para;</a></h3>
 <p>To build the module, run <code>make</code> in the project's directory.</p>
 <p>Congratulations! You can find the compiled module library at <code>src/rejson.so</code>.</p>
-<h3 id="loading-the-module-to-redis">Loading the module to Redis</h3>
+<h3 id="loading-the-module-to-redis">Loading the module to Redis<a class="headerlink" href="#loading-the-module-to-redis" title="Permanent link">&para;</a></h3>
 <p>Requirements:</p>
 <ul>
 <li><a href="http://redis.io/download">Redis v4.0 or above</a></li>
@@ -726,7 +742,7 @@ OK
 </pre></div>
 
 
-<h3 id="client-libraries">Client libraries</h3>
+<h3 id="client-libraries">Client libraries<a class="headerlink" href="#client-libraries" title="Permanent link">&para;</a></h3>
 <p>Some languages have client libraries that provide support for ReJSON's commands:</p>
 <table>
 <thead>
@@ -765,7 +781,7 @@ OK
 <td>Python</td>
 <td>BSD-2-Clause</td>
 <td><a href="https://redislabs.com">Redis Labs</a></td>
-<td><a href="https://github.com/RedisLabs/redis-py/">git</a> <a href="https://pypi.python.org/pypi/rejson">pypi</a></td>
+<td><a href="https://github.com/RedisLabs/rejson-py">git</a> <a href="https://pypi.python.org/pypi/rejson">pypi</a></td>
 </tr>
 <tr>
 <td>go-rejson (redigo client)</td>
@@ -833,16 +849,6 @@ OK
       </div>
       
         
-  <div class="md-footer-social">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-      <a href="https://github.com/redislabs" class="md-footer-social__link fa fa-github"></a>
-    
-      <a href="https://twitter.com/redislabs" class="md-footer-social__link fa fa-twitter"></a>
-    
-  </div>
-
       
     </div>
   </div>

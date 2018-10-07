@@ -33,7 +33,7 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../images/favicon.png">
       <meta name="generator" content="mkdocs-0.17.3, mkdocs-material-2.7.3">
     
     
@@ -43,6 +43,8 @@
     
     
       <link rel="stylesheet" href="../assets/stylesheets/application.8d40d89b.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.6079476c.css">
       
     
     
@@ -60,7 +62,9 @@
     
   </head>
   
-    <body dir="ltr">
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="red">
   
     <svg class="md-svg">
       <defs>
@@ -102,7 +106,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="http://rejson.io" title="ReJSON - a JSON data type for Redis" class="md-header-nav__button md-logo">
           
-            <i class="md-icon"></i>
+            <img src="../images/logo.svg" width="24" height="24">
           
         </a>
       </div>
@@ -198,7 +202,7 @@
   <label class="md-nav__title md-nav__title--site" for="drawer">
     <span class="md-nav__button md-logo">
       
-        <i class="md-icon"></i>
+        <img src="../images/logo.svg" width="48" height="48">
       
     </span>
     ReJSON - a JSON data type for Redis
@@ -345,6 +349,18 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../contrib/" title="Contributor agreement" class="md-nav__link">
+      Contributor agreement
+    </a>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -398,7 +414,7 @@
                   <a href="https://github.com/RedisLabsModules/ReJSON/edit/master/docs/path.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="rejson-path">ReJSON Path</h1>
+                <h1 id="rejson-path">ReJSON Path<a class="headerlink" href="#rejson-path" title="Permanent link">&para;</a></h1>
 <p>Since there does not exist a standard for path syntax, ReJSON implements its own. ReJSON's syntax is a subset of common best practices and resembles <a href="http://goessner.net/articles/JsonPath/">JSONPath</a> not by accident.</p>
 <p>Paths always begin at the root of a ReJSON value. The root is denoted by the period character (<code>.</code>). For paths referencing the root's children, prefixing the path with the root is optional.</p>
 <p>Dotted- and square-bracketed, single-or-double-quoted-child notation are both supported for object keys, so the following paths all refer to <em>bar</em>, child of <em>foo</em> under the root:</p>
@@ -408,14 +424,14 @@
 <li><code>['foo']["bar"]</code></li>
 </ul>
 <p>Array elements are accessed by their index enclosed by a pair of square brackets. The index is 0-based, with 0 being the first element of the array, 1 being the next element and so on. These offsets can also be negative numbers, indicating indices starting at the end of the array. For example, -1 is the last element in the array, -2 the penultimate, and so on.</p>
-<h2 id="a-note-about-json-key-names-and-path-compatibility">A note about JSON key names and path compatibility</h2>
+<h2 id="a-note-about-json-key-names-and-path-compatibility">A note about JSON key names and path compatibility<a class="headerlink" href="#a-note-about-json-key-names-and-path-compatibility" title="Permanent link">&para;</a></h2>
 <p>By definition, a JSON key can be any valid JSON String. Paths, on the other hand, are traditionally based on JavaScript's (and in Java in turn) variable naming conventions. Therefore, while it is possible to have ReJSON store objects containing arbitrary key names, accessing these keys via a path will only be possible if they respect these naming syntax rules:</p>
 <ol>
 <li>Names must begin with a letter, a dollar (<code>$</code>) or an underscore (<code>_</code>) character</li>
 <li>Names can contain letters, digits, dollar signs and underscores</li>
 <li>Names are case-sensitive</li>
 </ol>
-<h2 id="time-complexity-of-path-evaluation">Time complexity of path evaluation</h2>
+<h2 id="time-complexity-of-path-evaluation">Time complexity of path evaluation<a class="headerlink" href="#time-complexity-of-path-evaluation" title="Permanent link">&para;</a></h2>
 <p>The complexity of searching (navigating to) an element in the path is made of:</p>
 <ol>
 <li>Child level - every level along the path adds an additional search</li>
@@ -488,16 +504,6 @@
       </div>
       
         
-  <div class="md-footer-social">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-      <a href="https://github.com/redislabs" class="md-footer-social__link fa fa-github"></a>
-    
-      <a href="https://twitter.com/redislabs" class="md-footer-social__link fa fa-twitter"></a>
-    
-  </div>
-
       
     </div>
   </div>

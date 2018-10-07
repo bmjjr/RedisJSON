@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="http://rejson.io/developer/">
+        <link rel="canonical" href="http://rejson.io/contrib/">
       
       
       
@@ -38,7 +38,7 @@
     
     
       
-        <title>Developer notes - ReJSON - a JSON data type for Redis</title>
+        <title>Contributor agreement - ReJSON - a JSON data type for Redis</title>
       
     
     
@@ -95,7 +95,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#developer-notes" tabindex="1" class="md-skip">
+      <a href="#contributor-agreement" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -121,7 +121,7 @@
                 ReJSON - a JSON data type for Redis
               </span>
               <span class="md-header-nav__topic">
-                Developer notes
+                Contributor agreement
               </span>
             
           
@@ -296,6 +296,18 @@
       
       
 
+
+  <li class="md-nav__item">
+    <a href="../developer/" title="Developer notes" class="md-nav__link">
+      Developer notes
+    </a>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
@@ -306,65 +318,10 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Developer notes
-      </label>
-    
-    <a href="./" title="Developer notes" class="md-nav__link md-nav__link--active">
-      Developer notes
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#debugging" title="Debugging" class="md-nav__link">
-    Debugging
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing" title="Testing" class="md-nav__link">
-    Testing
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" title="Documentation" class="md-nav__link">
-    Documentation
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../contrib/" title="Contributor agreement" class="md-nav__link">
+    <a href="./" title="Contributor agreement" class="md-nav__link md-nav__link--active">
       Contributor agreement
     </a>
+    
   </li>
 
     
@@ -385,36 +342,6 @@
     
   
   
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#debugging" title="Debugging" class="md-nav__link">
-    Debugging
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing" title="Testing" class="md-nav__link">
-    Testing
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" title="Documentation" class="md-nav__link">
-    Documentation
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -425,38 +352,11 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/RedisLabsModules/ReJSON/edit/master/docs/developer.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/RedisLabsModules/ReJSON/edit/master/docs/contrib.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="developer-notes">Developer notes<a class="headerlink" href="#developer-notes" title="Permanent link">&para;</a></h1>
-<h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">&para;</a></h2>
-<p>Compile after settting the environment variable <code>DEBUG</code>, e.g. <code>export DEBUG=1</code>, to include the
-debugging information.</p>
-<h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
-<p>Python is required for ReJSON's module test. Install it with <code>apt-get install python</code>. You'll also
-need to have <a href="https://github.com/andymccurdy/redis-py">redis-py</a> installed. The easiest way to get
-it is using pip and running <code>pip install redis</code>.</p>
-<p>The module's test can be run against an "embedded" disposable Redis instance, or against an instance
-you provide to it. The "embedded" mode requires having the <code>redis-server</code> executable in your <code>PATH</code>.
-To run the tests, run the following in the project's directory:</p>
-<div class="codehilite"><pre><span></span>$ <span class="c1"># use a disposable Redis instance for testing the module</span>
-$ make <span class="nb">test</span>
-</pre></div>
-
-
-<p>You can override the spawning of the embedded server by specifying a Redis port via the <code>REDIS_PORT</code>
-environment variable, e.g.:</p>
-<div class="codehilite"><pre><span></span>$ <span class="c1"># use an existing local Redis instance for testing the module</span>
-$ <span class="nv">REDIS_PORT</span><span class="o">=</span><span class="m">6379</span> make <span class="nb">test</span>
-</pre></div>
-
-
-<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Prerequisites: <code>pip install mkdocs mkdocs-material</code></li>
-<li>To build and serve locally: <code>make localdocs</code></li>
-<li>To deploy to the website: <code>make deploydocs</code></li>
-</ol>
+                <h1 id="contributor-agreement">Contributor agreement<a class="headerlink" href="#contributor-agreement" title="Permanent link">&para;</a></h1>
+<p>Please refer to the following page for the agreement: <a href="https://cla-assistant.io/RedisLabsModules/Rejson">Redis Labs Software Grant and Contributor License Agreement</a></p>
                 
                   
                 
@@ -477,7 +377,7 @@ $ <span class="nv">REDIS_PORT</span><span class="o">=</span><span class="m">6379
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ram/" title="RAM usage" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../developer/" title="Developer notes" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -486,25 +386,11 @@ $ <span class="nv">REDIS_PORT</span><span class="o">=</span><span class="m">6379
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                RAM usage
+                Developer notes
               </span>
             </div>
           </a>
         
-        
-          <a href="../contrib/" title="Contributor agreement" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Contributor agreement
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>

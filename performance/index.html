@@ -33,7 +33,7 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../images/favicon.png">
       <meta name="generator" content="mkdocs-0.17.3, mkdocs-material-2.7.3">
     
     
@@ -43,6 +43,8 @@
     
     
       <link rel="stylesheet" href="../assets/stylesheets/application.8d40d89b.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.6079476c.css">
       
     
     
@@ -60,7 +62,9 @@
     
   </head>
   
-    <body dir="ltr">
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="red">
   
     <svg class="md-svg">
       <defs>
@@ -102,7 +106,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="http://rejson.io" title="ReJSON - a JSON data type for Redis" class="md-header-nav__button md-logo">
           
-            <i class="md-icon"></i>
+            <img src="../images/logo.svg" width="24" height="24">
           
         </a>
       </div>
@@ -198,7 +202,7 @@
   <label class="md-nav__title md-nav__title--site" for="drawer">
     <span class="md-nav__button md-logo">
       
-        <i class="md-icon"></i>
+        <img src="../images/logo.svg" width="48" height="48">
       
     </span>
     ReJSON - a JSON data type for Redis
@@ -454,6 +458,18 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../contrib/" title="Contributor agreement" class="md-nav__link">
+      Contributor agreement
+    </a>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -616,7 +632,7 @@
                   <a href="https://github.com/RedisLabsModules/ReJSON/edit/master/docs/performance.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="performance">Performance</h1>
+                <h1 id="performance">Performance<a class="headerlink" href="#performance" title="Permanent link">&para;</a></h1>
 <p>To get an early sense of what ReJSON is capable of, you can test it with <code>redis-benchmark</code> just like
 any other Redis command. However, in order to have more control over the tests, we'll use a 
 a tool written in Go called <em>ReJSONBenchmark</em> that we expect to release in the near future.</p>
@@ -627,29 +643,29 @@ All tests are non-pipelined.</p>
 <p>NOTE: The results below are measured using the preview version of ReJSON, which is still very much
 unoptimized.</p>
 </blockquote>
-<h2 id="rejson-baseline">ReJSON baseline</h2>
-<h3 id="a-smallish-object">A smallish object</h3>
+<h2 id="rejson-baseline">ReJSON baseline<a class="headerlink" href="#rejson-baseline" title="Permanent link">&para;</a></h2>
+<h3 id="a-smallish-object">A smallish object<a class="headerlink" href="#a-smallish-object" title="Permanent link">&para;</a></h3>
 <p>We test a JSON value that, while purely synthetic, is interesting. The test subject is
 <a href="https://github.com/RedisLabsModules/rejson/blob/master/test/files/pass-100.json">/test/files/pass-100.json</a>,
 who weighs in at 380 bytes and is nested. We first test SETting it, then GETting it using several
 different paths:</p>
 <p><img alt="ReJSONBenchmark pass-100.json" src="../images/bench_pass_100.png" /></p>
 <p><img alt="ReJSONBenchmark pass-100.json percentiles" src="../images/bench_pass_100_p.png" /></p>
-<h3 id="a-bigger-array">A bigger array</h3>
+<h3 id="a-bigger-array">A bigger array<a class="headerlink" href="#a-bigger-array" title="Permanent link">&para;</a></h3>
 <p>Moving on to bigger values, we use the 1.4 kB array in
 <a href="https://github.com/RedisLabsModules/rejson/blob/master/test/files/pass-jsonsl-1.json">/test/files/pass-jsonsl-1.json</a>:</p>
 <p><img alt="ReJSONBenchmark pass-jsonsl-1.json" src="../images/bench_pass_jsonsl_1.png" /></p>
 <p><img alt="ReJSONBenchmark pass-jsonsl-1.json percentiles" src="../images/bench_pass_jsonsl_1_p.png" /></p>
-<h3 id="a-largish-object">A largish object</h3>
+<h3 id="a-largish-object">A largish object<a class="headerlink" href="#a-largish-object" title="Permanent link">&para;</a></h3>
 <p>More of the same to wrap up, now we'll take on a behemoth of no less than 3.5 kB as given by
 <a href="https://github.com/RedisLabsModules/rejson/blob/master/test/files/pass-json-parser-0000.json">/test/files/pass-json-parser-0000.json</a>:</p>
 <p><img alt="ReJSONBenchmark pass-json-parser-0000.json" src="../images/bench_pass_json_parser_0000.png" /></p>
 <p><img alt="ReJSONBenchmark pass-json-parser-0000.json percentiles" src="../images/bench_pass_json_parser_0000_p.png" /></p>
-<h3 id="number-operations">Number operations</h3>
+<h3 id="number-operations">Number operations<a class="headerlink" href="#number-operations" title="Permanent link">&para;</a></h3>
 <p>Last but not least, some adding and multiplying:</p>
 <p><img alt="ReJSONBenchmark number operations" src="../images/bench_numbers.png" /></p>
 <p><img alt="ReJSONBenchmark number operations percentiles" src="../images/bench_numbers_p.png" /></p>
-<h3 id="baseline">Baseline</h3>
+<h3 id="baseline">Baseline<a class="headerlink" href="#baseline" title="Permanent link">&para;</a></h3>
 <p>To establish a baseline, we'll use the Redis <a href="https://redis.io/commands/ping"><code>PING</code></a> command.
 First, lets see what <code>redis-benchmark</code> reports:</p>
 <div class="codehilite"><pre><span></span>~$ redis/src/redis-benchmark -n 1000000 ping
@@ -671,19 +687,19 @@ are the results, which indicate that 16 workers yield the best throughput:</p>
 <p><img alt="ReJSONBenchmark PING percentiles" src="../images/bench_ping_p.png" /></p>
 <p>Note how our benchmarking tool does slightly worse in PINGing - producing only 116K ops, compared to
 <code>redis-cli</code>'s 140K.</p>
-<h3 id="the-empty-string">The empty string</h3>
+<h3 id="the-empty-string">The empty string<a class="headerlink" href="#the-empty-string" title="Permanent link">&para;</a></h3>
 <p>Another ReJSON benchmark is that of setting and getting an empty string - a value that's only two
 bytes long (i.e. <code>""</code>). Granted, that's not very useful, but it teaches us something about the basic
 performance of the module:</p>
 <p><img alt="ReJSONBenchmark empty string" src="../images/bench_empty_string.png" /></p>
 <p><img alt="ReJSONBenchmark empty string percentiles" src="../images/bench_empty_string_p.png" /></p>
-<h2 id="comparison-vs-server-side-lua-scripting">Comparison vs. server-side Lua scripting</h2>
+<h2 id="comparison-vs-server-side-lua-scripting">Comparison vs. server-side Lua scripting<a class="headerlink" href="#comparison-vs-server-side-lua-scripting" title="Permanent link">&para;</a></h2>
 <p>We compare ReJSON's performance with Redis' embedded Lua engine. For this purpose, we use the Lua
 scripts at <a href="https://github.com/RedisLabsModules/rejson/tree/master/benchmarks/lua">/benchmarks/lua</a>.
 These scripts provide ReJSON's GET and SET functionality on values stored in JSON or MessagePack
 formats. Each of the different operations (set root, get root, set path and get path) is executed
 with each "engine" on objects of varying sizes. </p>
-<h3 id="setting-and-getting-the-root">Setting and getting the root</h3>
+<h3 id="setting-and-getting-the-root">Setting and getting the root<a class="headerlink" href="#setting-and-getting-the-root" title="Permanent link">&para;</a></h3>
 <p>Storing raw JSON performs best in this test, but that isn't really surprising as all it does is
 serve unprocessed strings. While you can and should use Redis for caching opaque data, and JSON
 "blobs" are just one example, this does not allow any updates other than these of the entire value.</p>
@@ -695,7 +711,7 @@ further improved.</p>
 <p><img alt="VS. Lua set root latency" src="../images/bench_lua_set_root_l.png" /></p>
 <p><img alt="VS. Lua get root" src="../images/bench_lua_get_root.png" /></p>
 <p><img alt="VS. Lua get root latency" src="../images/bench_lua_get_root_l.png" /></p>
-<h3 id="setting-and-getting-parts-of-objects">Setting and getting parts of objects</h3>
+<h3 id="setting-and-getting-parts-of-objects">Setting and getting parts of objects<a class="headerlink" href="#setting-and-getting-parts-of-objects" title="Permanent link">&para;</a></h3>
 <p>This test shows why ReJSON exists. Not only does it outperform the Lua variants, it retains constant
 rates and latencies regardless the object's overall size. There's no magic here - ReJSON keeps the
 value deserialized so that accessing parts of it is a relatively inexpensive operation. In deep contrast
@@ -705,7 +721,7 @@ be done with it (a process that becomes more expensive the larger the object is)
 <p><img alt="VS. Lua set path to scalar latency" src="../images/bench_lua_set_path_l.png" /></p>
 <p><img alt="VS. Lua get scalar from path" src="../images/bench_lua_get_path.png" /></p>
 <p><img alt="VS. Lua get scalar from path latency" src="../images/bench_lua_get_path_l.png" /></p>
-<h3 id="even-more-charts">Even more charts</h3>
+<h3 id="even-more-charts">Even more charts<a class="headerlink" href="#even-more-charts" title="Permanent link">&para;</a></h3>
 <p>These charts are more of the same but independent for each file (value):</p>
 <p><img alt="VS. Lua pass-100.json rate" src="../images/bench_lua_pass_100.png" /></p>
 <p><img alt="VS. Lua pass-100.json average latency" src="../images/bench_lua_pass_100_l.png" /></p>
@@ -717,9 +733,9 @@ be done with it (a process that becomes more expensive the larger the object is)
 <p><img alt="VS. Lua pass-jsonsl-yahoo2.json latency" src="../images/bench_lua_pass_jsonsl_yahoo2_l.png" /></p>
 <p><img alt="VS. Lua pass-jsonsl-yelp.json rate" src="../images/bench_lua_pass_jsonsl_yelp.png" /></p>
 <p><img alt="VS. Lua pass-jsonsl-yelp.json latency" src="../images/bench_lua_pass_jsonsl_yelp_l.png" /></p>
-<h2 id="raw-results">Raw results</h2>
+<h2 id="raw-results">Raw results<a class="headerlink" href="#raw-results" title="Permanent link">&para;</a></h2>
 <p>The following are the raw results from the benchmark in CSV format.</p>
-<h3 id="rejson-results">ReJSON results</h3>
+<h3 id="rejson-results">ReJSON results<a class="headerlink" href="#rejson-results" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>title,concurrency,rate,average latency,50.00%-tile,90.00%-tile,95.00%-tile,99.00%-tile,99.50%-tile,100.00%-tile
 [ping],1,22128.12,0.04,0.04,0.04,0.05,0.05,0.05,1.83
 [ping],2,54641.13,0.04,0.03,0.05,0.05,0.06,0.07,2.14
@@ -769,7 +785,7 @@ JSON.GET {key} message.code,16,89206.61,0.18,0.16,0.25,0.28,0.36,0.39,8.60
 </pre></div>
 
 
-<h3 id="lua-using-cjson">Lua using cjson</h3>
+<h3 id="lua-using-cjson">Lua using cjson<a class="headerlink" href="#lua-using-cjson" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>json-set-root.lua empty string,16,86817.84,0.18,0.17,0.26,0.31,0.39,0.42,9.36
 json-get-root.lua,16,90795.08,0.17,0.16,0.25,0.28,0.36,0.39,8.75
 json-set-root.lua pass-100.json,16,84190.26,0.19,0.17,0.27,0.30,0.38,0.41,12.00
@@ -804,7 +820,7 @@ json-get-path.lua message code,16,3380.72,4.73,4.44,5.03,6.82,10.28,11.06,14.93
 </pre></div>
 
 
-<h3 id="lua-using-cmsgpack">Lua using cmsgpack</h3>
+<h3 id="lua-using-cmsgpack">Lua using cmsgpack<a class="headerlink" href="#lua-using-cmsgpack" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>msgpack-set-root.lua empty string,16,82592.66,0.19,0.18,0.27,0.31,0.38,0.42,10.18
 msgpack-get-root.lua,16,89561.41,0.18,0.16,0.25,0.29,0.37,0.40,9.52
 msgpack-set-root.lua pass-100.json,16,44326.47,0.36,0.34,0.43,0.54,0.78,0.86,6.45
@@ -901,16 +917,6 @@ msgpack-get-path.lua message code,16,5030.95,3.18,3.07,3.24,3.57,6.08,6.92,12.44
       </div>
       
         
-  <div class="md-footer-social">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-      <a href="https://github.com/redislabs" class="md-footer-social__link fa fa-github"></a>
-    
-      <a href="https://twitter.com/redislabs" class="md-footer-social__link fa fa-twitter"></a>
-    
-  </div>
-
       
     </div>
   </div>

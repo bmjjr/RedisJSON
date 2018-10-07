@@ -604,6 +604,16 @@
             "location": "/developer/#documentation", 
             "text": "Prerequisites:  pip install mkdocs mkdocs-material  To build and serve locally:  make localdocs  To deploy to the website:  make deploydocs", 
             "title": "Documentation"
+        }, 
+        {
+            "location": "/contrib/", 
+            "text": "Contributor agreement\n\n\nPlease refer to the following page for the agreement: \nRedis Labs Software Grant and Contributor License Agreement", 
+            "title": "Contributor agreement"
+        }, 
+        {
+            "location": "/contrib/#contributor-agreement", 
+            "text": "Please refer to the following page for the agreement:  Redis Labs Software Grant and Contributor License Agreement", 
+            "title": "Contributor agreement"
         }
     ]
 }
